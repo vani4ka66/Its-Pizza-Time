@@ -28,9 +28,9 @@ export default class Notification {
       this.container.innerHTML = ''
    }
 
-  render() {
+  render(type=this.type, price=this.price) {
     const template = `
-                      <div class="notification type-${this.type} ${classNames({"is-danger": this.type === 'hawaiian'})}">
+                      <div class="notification type-${type} ${classNames({"is-danger": this.type === 'hawaiian'})}">
                         <button class="${classNames("delete")}"></button>
 
                         🍕 <span class="${classNames("type")}">${this.type}</span> (<span class="${classNames("price")}">${formatCurrency(this.price)}</span>) has been added to your order.

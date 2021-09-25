@@ -30,10 +30,10 @@ export default class Notification {
 
   render() {
     const template = `
-                      <div class="notification">
+                      <div class="notification type-${this.type}">
                         <button class="${classNames("delete")}"></button>
 
-                        🍕 <span class="${classNames("type")}"> type - ${this.type}</span> (<span class="${classNames("price")}">price - ${formatCurrency(this.price)}</span>) has been added to your order.
+                        🍕 <span class="${classNames("type")}">${this.type}</span> (<span class="${classNames("price")}"> ${formatCurrency(this.price)}</span>) has been added to your order.
                       </div>
                           `;
 

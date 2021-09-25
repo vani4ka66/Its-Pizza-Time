@@ -19,10 +19,15 @@ export default class Notification {
     this.container = document.createElement("div");
     this.container.classList.add("notification-container");
     document.querySelector(".notifications").appendChild(this.container);
-
   }
 
-   empty(){
+   empty(arr){
+    for(let i = 0; i < arr.length; i++){
+      arr[i].addEventListener('click', function(){
+
+        this.parentElement.parentElement.innerHTML = ""
+      })
+    }
    }
 
   render() {
@@ -40,12 +45,7 @@ export default class Notification {
     this.container.innerHTML = template;
     let arr = document.querySelectorAll('.delete')
 
-    for(let i = 0; i < arr.length; i++){
-      arr[i].addEventListener('click', function(){
+    this.empty(arr)
 
-        this.parentElement.parentElement.innerHTML = ""
-    
-      })
-    }
   }
 }

@@ -15,8 +15,8 @@ export default class Notification {
   constructor(type, price) {
     
 
-    this._type = type
-    this._price = price
+    this.type = type
+    this.price = price
 
     this.container = document.createElement("div");
     this.container.classList.add("notification-container");
@@ -33,7 +33,7 @@ export default class Notification {
                       <div class="notification">
                         <button class="${classNames("delete")}"></button>
 
-                        🍕 <span class="${classNames("type")}">${this._type}</span> (<span class="${classNames("price")}">${formatCurrency(this._price)}</span>) has been added to your order.
+                        🍕 <span class="${classNames("type")}">${this.type}</span> (<span class="${classNames("price")}">${formatCurrency(this.price)}</span>) has been added to your order.
                       </div>
                           `;
 

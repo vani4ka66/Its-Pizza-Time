@@ -33,7 +33,7 @@ export default class Notification {
                       <div class="notification type-${this.type}">
                         <button class="${classNames("delete")}"></button>
 
-                        🍕 <span class="${classNames("type")}">${this.type}</span> (<span class="${classNames("price")}"> ${formatCurrency(this.price)}</span>) has been added to your order.
+                        🍕 <span class="${classNames("type")}">${this.type}</span> (<span class="${classNames("price")}">${formatCurrency(this.price)}</span>) has been added to your order.
                       </div>
                           `;
 

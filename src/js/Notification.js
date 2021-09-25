@@ -12,7 +12,7 @@ export default class Notification {
     };
   }
 
-  constructor(type, price) {
+  constructor({ type, price }) {
     this.type = type
     this.price = price
 
@@ -24,21 +24,18 @@ export default class Notification {
    empty(arr){
     for(let i = 0; i < arr.length; i++){
       arr[i].addEventListener('click', function(){
-
         this.parentElement.parentElement.innerHTML = ""
       })
     }
    }
 
-  render() {
-    let type = (this.type)
-    let price = (this.price)
+  render({ type, price } = constructor) {
 
     const template = `
-                      <div class="notification type-${type} ${classNames({"is-danger": type === Notification.types.HAWAIIAN})}">
+                      <div class="notification type-${this.type} ${classNames({"is-danger": this.type === Notification.types.HAWAIIAN})}">
                         <button class="${classNames("delete")}"></button>
 
-                        🍕 <span class="${classNames("type")}">${type}</span> (<span class="${classNames("price")}">${formatCurrency(price)}</span>) has been added to your order.
+                        🍕 <span class="${classNames("type")}">${this.type}</span> (<span class="${classNames("price")}">${formatCurrency(this.price)}</span>) has been added to your order.
                       </div>
                           `;
 

@@ -24,7 +24,7 @@ export default class Card extends EventEmitter {
     this._type = type;
     this._price = price;
 
-    this.notif = new Notification(this._type, this._price);
+    this.notif = new Notification({ type, price });
 
     this.container = document.createElement("div");
     this.container.classList.add("card-container");
@@ -41,7 +41,7 @@ export default class Card extends EventEmitter {
     this.container.innerHTML = template;
     this.container.addEventListener("click", () => {
      
-      this.emit(Card.events.ADD_TO_CART, {
+      const a = this.emit(Card.events.ADD_TO_CART, {
         type: this._type,
         price: this._price,
       });

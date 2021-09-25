@@ -24,8 +24,8 @@ export default class Notification {
 
   }
 
-   deleteNotif(){
-      document.querySelector(".notifications").removeChild(this.container);
+   empty(){
+      this.container.innerHTML = ''
    }
 
   render() {
@@ -37,8 +37,9 @@ export default class Notification {
                           `;
 
     this.container.innerHTML = template;
-    this.container.addEventListener("click", () => {
-      this.deleteNotif()
+
+    document.querySelector('.delete').addEventListener("click", () => {
+      this.empty()
     });
   }
 }

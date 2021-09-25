@@ -15,13 +15,18 @@ export default class Notification {
   constructor() {
     this.container = document.createElement("div");
     this.container.classList.add("notification-container");
+
   }
+
+   deleteNotif(){
+
+   }
 
   render() {
     const template = `
-                      <div class="notification type-pepperoni">
+                      <div class="notification ${classNames}">
                         <button class="delete"></button>
-                        🍕 <span class="type">pepperoni</span> (<span class="price">0,00 ${formatCurrency}</span>) has been added to your order.
+                        🍕 <span class="type">${this._type}</span> (<span class="price">${this._price} ${formatCurrency}</span>) has been added to your order.
                       </div>
                           `;
 

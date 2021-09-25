@@ -24,22 +24,28 @@ export default class Notification {
 
   }
 
-   empty(){
+   empty(i){
       this.container.innerHTML = ''
    }
 
   render() {
     const template = `
-                      <div class="notification ${classNames}">
-                        <button class="delete"></button>
-                        🍕 <span class="type">${this._type}</span> (<span class="price">${formatCurrency(this._price)}</span>) has been added to your order.
+                      <div class="notification">
+                        <button class="${classNames("delete")}"></button>
+
+                        🍕 <span class="${classNames("type")}">${this._type}</span> (<span class="${classNames("price")}">${formatCurrency(this._price)}</span>) has been added to your order.
                       </div>
                           `;
 
     this.container.innerHTML = template;
+    let arr = document.querySelectorAll('.delete')
 
-    document.querySelector('.delete').addEventListener("click", () => {
-      this.empty()
-    });
+    for(let i = 0; i < arr.length; i++){
+      arr[i].addEventListener('click', function(){
+
+        this.parentElement.parentElement.innerHTML = ""
+    
+      })
+    }
   }
 }
